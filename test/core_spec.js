@@ -109,9 +109,7 @@ describe('application logic', ()=>{
       const state = Map({
         vote: Map({
           pair: List.of('Trainspotting', '28 Days Later')
-        }),
-        entries: List()
-      });
+        });
       const nextState = vote(state, 'Trainspotting');
       expect(nextState).to.equal(Map({
         vote: Map({
@@ -119,8 +117,6 @@ describe('application logic', ()=>{
           tally: Map({
             'Trainspotting': 1
           })
-        }),
-        entries: List()
       }));
     });
 
@@ -130,8 +126,6 @@ describe('application logic', ()=>{
           'Trainspotting': 3,
           '28 Days Later': 2
         })
-      }),
-      entries: List()
     });
     const nextState = vote(state, 'Trainspotting');
     expect(nextState).to.equal(Map({
@@ -141,8 +135,6 @@ describe('application logic', ()=>{
           'Trainspotting': 4,
           '28 Days Later': 2
         })
-      }),
-      entries: List()
     }));
   });
 

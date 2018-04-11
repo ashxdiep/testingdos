@@ -1,14 +1,16 @@
 import { List } from 'immutable';
 
+export const INITIAL_STATE = Map();
+
 export function setEntries(state, entries){
   return state.set('entries', entries);
 }
 
-export function vote(state, entry){
+export function vote(voteState, entry){
   //reach into nested data structure path, and apply function
   //if any keys missing, create new maps in place
-  return state.updateIn(
-    ['vote', 'tally', entry],
+  return voteState.updateIn(
+    ['tally', entry],
     0,
     tally => tally + 1
   );
